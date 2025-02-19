@@ -1,13 +1,17 @@
 import {Slot} from "expo-router";
 import { SQLiteDatabase, SQLiteProvider } from "expo-sqlite";
+import { Suspense } from "react";
+import { ActivityIndicator, Text } from "react-native";
 
 const database = 'reports.db';
 
 export default function RootLayout() {
   return (
-    <SQLiteProvider databaseName={database} onInit={onInitialize}>
-      <Slot />
-    </SQLiteProvider>
+    <Suspense fallback={<ActivityIndicator />}>
+      <SQLiteProvider useSuspense databaseName={database} onInit={onInitialize}>
+        <Slot />
+      </SQLiteProvider>
+    </Suspense>
   );
 }
 
