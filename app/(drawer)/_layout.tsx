@@ -5,7 +5,6 @@ export default function DrawerLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Drawer screenOptions={{
-        drawerActiveBackgroundColor: "red",
         headerTintColor: "black",
       }}>
         <Drawer.Screen name="locations" options={{
